@@ -1,0 +1,68 @@
+package com.edge1s.excercises.company;
+
+import static java.util.Calendar.DAY_OF_MONTH;
+import static java.util.Calendar.DAY_OF_WEEK;
+import static java.util.Calendar.SATURDAY;
+import static java.util.Calendar.SUNDAY;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.zip.DataFormatException;
+
+import javax.print.attribute.HashAttributeSet;
+
+import com.edge1s.excercises.utils.Position;
+
+public class ComputeSalaryImpl implements ComputeSalaryInterface {
+
+	public final static String DATE_FORMAT = "yyyy-MM";
+	
+
+	@Override
+	public int computeMonthWorkHours(int year, int month) throws ParseException {
+
+		String dateBeforeFormat = year + "-" + month;
+		SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT);
+		Date date = format.parse(dateBeforeFormat);
+		Calendar calendar = Calendar.getInstance();
+
+		int countDays = calendar.getActualMaximum(DAY_OF_MONTH);
+		calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMinimum(Calendar.DAY_OF_MONTH));
+		for (int i = 1; i <= calendar.getActualMaximum(DAY_OF_MONTH); i++) {
+			calendar.set(DAY_OF_MONTH, i);
+			if (calendar.get(DAY_OF_WEEK) == SATURDAY || calendar.get(DAY_OF_WEEK) == SUNDAY)
+				countDays--;
+		}
+		System.out.println(countDays);
+		return 0;
+
+	}
+
+	@Override
+	public double computeSalary(Employee employee, Date month){
+	
+//		
+//		Map<Date, Integer> workingDays = employee.getWorkingDays();	
+//		
+//		SimpleDateFormat sdf = new SimpleDateFormat("MM-yyyy");
+//		String monthDate = sdf.format(month);
+//		
+//		//czy data z argumentu Date month zawiera siê w mapie working days
+//		//jesli nie exc. jeœli tak pobraæ date
+//		
+//		
+//		//czy pracowanik pracowa³ w danym miesi¹cu
+		return 0;
+	}
+	
+	public boolean workedMonth(){
+		return false;
+		
+	}
+
+}

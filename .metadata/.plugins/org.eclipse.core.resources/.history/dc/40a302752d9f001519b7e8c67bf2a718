@@ -1,0 +1,36 @@
+package ldi.org.pl;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class MainPageTest {
+
+	private WebDriver driver;
+	
+	@BeforeClass
+	public void setUpBeforeClass(){
+		driver = new FirefoxDriver();
+		driver.get("http://ldi.org.pl/");
+	}
+	
+	@Before
+	public void setUp(){
+		driver.manage().window().maximize();
+	}
+	
+	@Test
+	@Ignore
+	public void checkMainPageElements(){
+		
+	}
+	
+	@After
+	public void tearDown(){
+		// driver.quit();
+	}
+}

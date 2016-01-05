@@ -1,0 +1,54 @@
+package ldi.org.pl;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.FindBy;
+
+public class MainPageTest {
+
+	private static WebDriver driver;
+	private static final String LOGO_LDI = "//img[contains(@src,'http://ldi.org.pl/public/style_images/ldi/logo.png')]";
+	private static final String PORTAL = "//ul//li//a[contains(@class,'dark')]";
+
+	@FindBy(xpath = LOGO_LDI)
+	private WebElement logoLdi;
+
+	@FindBy(xpath = PORTAL)
+	private WebElement portal;
+
+	@BeforeClass
+	public static void setUpBeforeClass() {
+		driver = new FirefoxDriver();
+		driver.get("http://ldi.org.pl/");
+	}
+
+	@Before
+	public void setUp() {
+		driver.manage().window().maximize();
+	}
+
+	@Test
+	public void checkMainPageElements() {
+
+		Utils.wait(5000);
+		logoLdi = driver.findElement(By.xpath(LOGO_LDI));
+
+		assertTrue("Logo LDI is not displayed", logoLdi.isDisplayed());
+		assertTrue("Portal button is not displayed", portal.isDisplayed());
+
+	}
+
+	@After
+	public void tearDown() {
+		// driver.quit();
+	}
+}

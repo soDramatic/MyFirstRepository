@@ -1,0 +1,94 @@
+package com.edge1s.excercises.company;
+
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.edge1s.excercises.utils.Address;
+
+public class Company {
+
+	//@SuppressWarnings("deprecation")
+	public static void main(String args[]) throws Exception {
+
+		try {
+			Address address = new Address("Krasiñskiego", "Lublin", "21-709", 12, 31);
+			Address address1 = new Address("Balladyny", "Lublin", "12-312", 91, 123);
+
+			Employee employee1 = new Employee("1992-12-12");
+			employee1.setName("Marcin");
+			employee1.setSurname("Zió³kowski");
+			employee1.setAddress(address);
+			employee1.setSalaryPerHour(100.0f);
+			employee1.getWorkingDays().put(new Date(2015, 12, 01), 160);
+			
+			
+			computeMonthWorkHours();
+			
+			//stworzyc obiekt klasy CSI i wywolac z niego metode dla pracownika 
+			
+			
+			
+			
+			// Employee employee2 = new Employee("1990-02-05");
+			// employee2.setName("Karol");
+			// employee2.setSurname("Kamieniarz");
+			// employee2.setAddress(address1);
+			// employee2.setSalaryPerHour(101.01f);
+
+//			System.out.println("First employee: \n" + employee1.getName() + " " + employee1.getSurname() + "\n"
+//					+ "Birth date: " + employee1.getBirthDate() + "\nAddress:  " + "\nCity: "
+//					+ employee1.getAddress().getCity() + "\n" + "Street: " + employee1.getAddress().getStreet()
+//					+ "\nCity code: " + employee1.getAddress().getCityCode() + "\nHome number: "
+//					+ employee1.getAddress().getHomeNumber() + "\nApartment number: "
+//					+ employee1.getAddress().getApartamentNumber() + "\nDepartment: " + employee1.getDepartment().IT
+//					+ "\nPosition: " + employee1.getPosition().QA + "\nSalaryPerHour " + employee1.getSalaryPerHour());
+
+			// System.out.println("Second employee: " + employee2.getName() + "
+			// " + employee2.getSurname() + " "
+			// + employee2.getBirthDate() + " Address:" +
+			// employee2.getDateOfEmployment());
+
+			// list.add(employee1);
+			// list.add(employee2);
+
+			// for (Employee element : list) {
+			// System.out.println(element.getName());
+			// }
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	private static List<Employee> list = new ArrayList<>();
+	private ComputeSalaryImpl computeSalary;
+	private Map<Integer, Integer> map = new HashMap<>();
+
+	public List<Employee> getList() {
+		return list;
+	}
+
+	public void setList(List<Employee> list) {
+		this.list = list;
+	}
+
+	public ComputeSalaryImpl getComputeSalary() {
+		return computeSalary;
+	}
+
+	public void setComputeSalary(ComputeSalaryImpl computeSalary) {
+		this.computeSalary = computeSalary;
+	}
+
+	public Map<Integer, Integer> getMap() {
+		return map;
+	}
+
+	public void setMap(Map<Integer, Integer> map) {
+		this.map = map;
+	}
+}

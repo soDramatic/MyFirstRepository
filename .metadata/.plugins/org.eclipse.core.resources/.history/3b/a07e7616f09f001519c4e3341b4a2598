@@ -1,0 +1,137 @@
+package ldi.org.pl;
+
+import static org.junit.Assert.*;
+
+import java.util.List;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.FindBy;
+
+public class MainPageTest {
+
+	private static WebDriver driver;
+
+	// MAIN PAGE
+	private static final String LOGO_LDI = "//img[contains(@src,'http://ldi.org.pl/public/style_images/ldi/logo.png')]";
+	private static final String PORTAL = "//a[contains(@class,'dark')]";
+	private static final String KONFERENCJA = "//a[contains(@href,'http://ldi.org.pl/page/konferencja')]";
+	private static final String AGENDA = "//a[contains(@href,'http://ldi.org.pl/page/agenda')]";
+	private static final String PRELEGENCI = "//li[@id='prelegenci']";
+	private static final String ORGANIZATORZY = "//li[@id='organizatorzy']";
+	private static final String FORUM = "//li[@id='dyskusje']";
+
+	// LOGIN POP-UP
+	private static final String LOGIN_BUTTON = "//a[contains(@title,'Logowanie')]";
+	private static final String LOGIN_TEXTBOX = "//input[contains(@id,'ips_username')]";
+	private static final String PASSWORD_TEXTBOX = "//input[contains(@id,'ips_password')]";
+	private static final String REMEMBER_CHECKBOX = "//input[contains(@id,'inline_remember')]";
+
+	@FindBy(xpath = LOGO_LDI)
+	private WebElement logoLdi;
+
+	@FindBy(xpath = PORTAL)
+	private WebElement portal;
+
+	@FindBy(xpath = KONFERENCJA)
+	private WebElement konferencja;
+
+	@FindBy(xpath = AGENDA)
+	private WebElement agenda;
+
+	@FindBy(xpath = PRELEGENCI)
+	private WebElement prelegenci;
+
+	@FindBy(xpath = ORGANIZATORZY)
+	private WebElement organizatorzy;
+
+	@FindBy(xpath = FORUM)
+	private WebElement forum;
+
+	@FindBy(xpath = LOGIN_BUTTON)
+	private WebElement loginButton;
+
+	@FindBy(xpath = LOGIN_TEXTBOX)
+	private WebElement loginTextbox;
+
+	@FindBy(xpath = PASSWORD_TEXTBOX)
+	private WebElement passwordText;
+
+	@FindBy(xpath = REMEMBER_CHECKBOX)
+	private WebElement rememberCheckbox;
+
+	@BeforeClass
+	public static void setUpBeforeClass() {
+		driver = new FirefoxDriver();
+		driver.get("http://ldi.org.pl/");
+	}
+
+	@Before
+	public void setUp() {
+		driver.manage().window().maximize();
+	}
+
+	@Test
+	public void loginTest() throws InterruptedException {
+
+		loginButton = driver.findElement(By.xpath(LOGIN_BUTTON));
+		assertTrue("Login button is not displayed.", loginButton.isDisplayed());
+		loginButton.click();
+
+		loginTextbox = driver.findElement(By.xpath(LOGIN_TEXTBOX));
+		assertTrue("Login textbox is not displayed.", loginButton.isDisplayed());
+		Thread.sleep(2000);
+		loginTextbox.sendKeys("ziolkowski.marcin@windowslive.com");
+		assertEquals("Incorrect login!", "ziolkowski.marcin@windowslive.com", loginTextbox.getAttribute("value"));
+
+		passwordText = driver.findElement(By.xpath(PASSWORD_TEXTBOX));
+		assertTrue("Password textbox is not displayed.", passwordText.isDisplayed());
+		Thread.sleep(2000);
+		passwordText.sendKeys("a2575263952c2a2");
+		assertEquals("Incorrect password!", "a2575263952c2a2", passwordText.getAttribute("value"));
+		
+		rememberCheckbox = driver.findElement(By.xpath(REMEMBER_CHECKBOX));
+		rememberCheckbox.click();
+		assertTrue("Checkbox 'Remember me' is checked", rememberCheckbox.isSelected());
+
+	}
+
+	@Test
+	public void checkMenuElementsTest() {
+
+		Utils.wait(5000);
+
+		logoLdi = driver.findElement(By.xpath(LOGO_LDI));
+		assertTrue("Logo LDI is not displayed.", logoLdi.isDisplayed());
+
+		portal = driver.findElement(By.xpath(PORTAL));
+		assertTrue("Portal button is not displayed.", portal.isDisplayed());
+
+		konferencja = driver.findElement(By.xpath(KONFERENCJA));
+		assertTrue("Konferencja button is not displayed.", konferencja.isDisplayed());
+
+		agenda = driver.findElement(By.xpath(AGENDA));
+		assertTrue("Agenda button is not displayed.", agenda.isDisplayed());
+
+		prelegenci = driver.findElement(By.xpath(PRELEGENCI));
+		assertTrue("Prelegenci button is not displayed.", prelegenci.isDisplayed());
+
+		organizatorzy = driver.findElement(By.xpath(ORGANIZATORZY));
+		assertTrue("Organizatorzy button is not displayed.", organizatorzy.isDisplayed());
+
+		forum = driver.findElement(By.xpath(FORUM));
+		assertTrue("Forum button is not displayed.", forum.isDisplayed());
+	}
+
+	@After
+	public void tearDown() {
+		// driver.quit();
+	}
+}

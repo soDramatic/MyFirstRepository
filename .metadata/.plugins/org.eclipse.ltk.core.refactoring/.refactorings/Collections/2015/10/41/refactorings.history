@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;liczby&apos; in &apos;VariationsOfCollections.main(...)&apos; to &apos;lista&apos;&#x0D;&#x0A;- Original project: &apos;Collections&apos;&#x0D;&#x0A;- Original element: &apos;VariationsOfCollections.main(String[]).liczby&apos;&#x0D;&#x0A;- Renamed element: &apos;liczby&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;liczby&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{VariationsOfCollections.java[VariationsOfCollections~main~\[QString;@liczby!171!211!185!190!QList\&lt;QInteger;&gt;;!0!false" name="lista" references="true" stamp="1444136390993" version="1.0"/>
+</session>

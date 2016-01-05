@@ -1,0 +1,59 @@
+package ldi.org.pl;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class LoginPage {
+
+	private WebDriver driver;
+
+	public LoginPage(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	private static final String POPUP_LOGIN_BUTTON = "//a[contains(@title,'Logowanie')]";
+	private static final String LOGIN_TEXTBOX = "//input[contains(@id,'ips_username')]";
+	private static final String PASSWORD_TEXTBOX = "//input[contains(@id,'ips_password')]";
+	private static final String REMEMBER_CHECKBOX = "//input[contains(@id,'inline_remember')]";
+	private static final String LOGIN_BUTTON = "//input[contains(@type,'submit')]";
+
+	@FindBy(xpath = POPUP_LOGIN_BUTTON)
+	private WebElement popupLoginButton;
+
+	@FindBy(xpath = LOGIN_TEXTBOX)
+	private WebElement loginTextbox;
+
+	@FindBy(xpath = PASSWORD_TEXTBOX)
+	private WebElement passwordTextbox;
+
+	@FindBy(xpath = REMEMBER_CHECKBOX)
+	private WebElement rememberCheckbox;
+
+	@FindBy(xpath = LOGIN_BUTTON)
+	private WebElement loginButton;
+
+	public void clickPopupLoginButton() {
+		Utils.wait(3000);
+		popupLoginButton = driver.findElement(By.xpath(POPUP_LOGIN_BUTTON));
+		popupLoginButton.click();
+	}
+
+	public LoginPage typeLogin(String username) {
+
+		loginTextbox = driver.findElement(By.xpath(LOGIN_TEXTBOX));
+		loginTextbox.sendKeys("ziolkowski.marcin@windowslive.com");
+		return this;
+	}
+
+	public LoginPage typePassword(String password) {
+
+		passwordTextbox = driver.findElement(By.xpath(PASSWORD_TEXTBOX));
+		passwordTextbox.sendKeys(password);
+		return this;
+
+	}
+	
+	
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;list&apos; in &apos;com.org.ziolek.WykopPostTest.drawAndEnterOnePostInMainPageTest()&apos; to &apos;listOfTitles&apos;&#x0D;&#x0A;- Original project: &apos;myProject&apos;&#x0D;&#x0A;- Original element: &apos;com.org.ziolek.WykopPostTest.drawAndEnterOnePostInMainPageTest().list&apos;&#x0D;&#x0A;- Renamed element: &apos;list&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;list&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src\/test\/java&lt;com.org.ziolek{WykopPostTest.java[WykopPostTest~drawAndEnterOnePostInMainPageTest@list!2308!2359!2325!2328!QList\&lt;QWebElement;&gt;;!0!false" name="listOfTitles" references="true" stamp="1448972867056" version="1.0"/>
+</session>

@@ -1,0 +1,68 @@
+package ldi.org.pl;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class LoginPage {
+
+	private WebDriver driver;
+
+	public LoginPage(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	private static final String POPUP_LOGIN_BUTTON = "//a[contains(@title,'Logowanie')]";
+	private static final String LOGIN_TEXTBOX = "//input[contains(@id,'ips_username')]";
+	private static final String PASSWORD_TEXTBOX = "//input[contains(@id,'ips_password')]";
+	private static final String REMEMBER_CHECKBOX = "//input[contains(@id,'inline_remember')]";
+	private static final String LOGIN_BUTTON = "//input[contains(@type,'submit')]";
+
+	@FindBy(xpath = POPUP_LOGIN_BUTTON)
+	private WebElement popupLoginButton;
+
+	@FindBy(xpath = LOGIN_TEXTBOX)
+	private WebElement loginTextbox;
+
+	@FindBy(xpath = PASSWORD_TEXTBOX)
+	private WebElement passwordTextbox;
+
+	@FindBy(xpath = REMEMBER_CHECKBOX)
+	private WebElement rememberCheckbox;
+
+	@FindBy(xpath = LOGIN_BUTTON)
+	private WebElement loginButton;
+
+	public WebElement getPopupLoginButton() {
+
+		return popupLoginButton;
+	}
+
+	public WebElement getLoginTextbox() {
+
+		return loginTextbox;
+	}
+
+	public WebElement setLoginTextbox(String username) {
+
+		loginTextbox.sendKeys(username);
+		return loginButton;
+	}
+
+	public WebElement getPasswordTextbox() {
+
+		return passwordTextbox;
+	}
+
+	public WebElement setPasswordTexbox(String password) {
+
+		passwordTextbox.sendKeys(password);
+		return passwordTextbox;
+	}
+
+	public WebElement getLoginButton() {
+
+		return loginButton;
+	}
+}

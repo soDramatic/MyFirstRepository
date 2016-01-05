@@ -1,0 +1,43 @@
+package ldi.org.pl;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.FindBy;
+
+public class MainPageTest {
+
+	private static WebDriver driver;
+	private static final String LOGO_LDI = "//img[contains(@src,'http://ldi.org.pl/public/style_images/ldi/logo.png')]";
+	
+	@FindBy (xpath = LOGO_LDI)
+	private WebElement logoLdi;
+	
+	@BeforeClass
+	public static void setUpBeforeClass(){
+		driver = new FirefoxDriver();
+		driver.get("http://ldi.org.pl/");
+	}
+	
+	@Before
+	public void setUp(){
+		driver.manage().window().maximize();
+	}
+	
+	@Test
+	@Ignore
+	public void checkMainPageElements(){
+		
+		assertTrue("Logo LDI is displayed", )
+	}
+	
+	@After
+	public void tearDown(){
+		// driver.quit();
+	}
+}

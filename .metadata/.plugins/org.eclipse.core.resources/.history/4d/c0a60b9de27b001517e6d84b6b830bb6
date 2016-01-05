@@ -1,0 +1,91 @@
+package com.edge1s.excercises.company;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.edge1s.excercises.utils.Address;
+import com.edge1s.excercises.utils.Department;
+import com.edge1s.excercises.utils.Position;
+
+public class Employee extends Person {
+
+	private int id;
+	private Date dateOfEmployment;
+	protected Position position;
+	private Department department;
+	private float salaryPerHour;
+	private Map<LocalDate, Integer> workingDays = new HashMap<>();
+	
+	
+	public Employee() {
+	}
+
+	public Employee(String birthDate) throws ParseException {
+		super(birthDate);
+	}
+
+	public Employee(int id, String dateOfEmployment, Position position, Department department, float salaryPerHour,
+			String name, String surname, String birthDate, Address address) throws ParseException {
+
+		super(name, surname, birthDate, address);
+		this.id = id;
+		this.position = position;
+		this.department = department;
+		this.salaryPerHour = salaryPerHour;
+		
+		DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		this.dateOfEmployment = format.parse(dateOfEmployment);
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Date getDateOfEmployment() {
+		return dateOfEmployment;
+	}
+
+	public void setDateOfEmployment(Date dateOfEmployment) {
+		this.dateOfEmployment = dateOfEmployment;
+	}
+
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public float getSalaryPerHour() {
+		return salaryPerHour;
+	}
+
+	public void setSalaryPerHour(float salaryPerHour) {
+		this.salaryPerHour = salaryPerHour;
+	}
+
+	public Map<Date, Integer> getWorkingDays() {
+		return workingDays;
+	}
+
+	public void setWorkingDays(Map<Date, Integer> workingDays) {
+		this.workingDays = workingDays;
+	}
+}

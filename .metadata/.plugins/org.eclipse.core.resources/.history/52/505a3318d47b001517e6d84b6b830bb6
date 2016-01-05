@@ -1,0 +1,17 @@
+package com.edge1s.excercises.company;
+
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.Map;
+
+import com.edge1s.excercises.utils.Position;
+
+public interface ComputeSalaryInterface {
+	
+	default int computeMonthWorkHours(int year, int month) throws ParseException {
+		return 0;
+	} 
+	public double computeSalary (Employee employee, Date month);
+	public boolean whetherWorked (LocalDate date, Map<Date, Integer> workingDays);
+}

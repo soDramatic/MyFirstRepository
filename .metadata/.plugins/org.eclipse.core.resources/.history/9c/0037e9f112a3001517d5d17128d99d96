@@ -1,0 +1,10 @@
+package ldi.org.pl;
+
+import org.openqa.selenium.WebDriver;
+
+public class LoginPage {
+
+	private WebDriver driver;
+	
+	
+}

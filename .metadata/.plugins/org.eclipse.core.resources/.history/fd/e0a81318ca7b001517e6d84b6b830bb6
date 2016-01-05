@@ -1,0 +1,15 @@
+package com.edge1s.excercises.company;
+
+import java.text.ParseException;
+import java.util.Date;
+
+import com.edge1s.excercises.utils.Position;
+
+public interface ComputeSalaryInterface {
+	
+	public double computeSalary(Position position);
+	default int computeMonthWorkHours(int year, int month) throws ParseException {
+		return 0;
+	} 
+	public double computeSalary (Employee employee, Date month);
+}
