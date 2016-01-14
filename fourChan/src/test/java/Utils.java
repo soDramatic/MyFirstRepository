@@ -1,3 +1,5 @@
+import org.openqa.selenium.WebElement;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
@@ -39,11 +41,10 @@ public class Utils {
             String patternStr = "([a-zA-Z0-9]+\\W{1}jpg)|([a-zA-Z0-9]+\\W{1}png)|([a-zA-Z0-9]+\\W{1}bmp)";
             image.matches(patternStr);
             Files.lines(new File("E://Programowanie/Images/Hash.txt").toPath()).filter(s1 -> !s.isEmpty()).forEach(System.out::print);
-            Files.li
 
             FileWriter fw = new FileWriter(file.getAbsoluteFile());
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(s);
+            bw.write(s + ",");
             bw.close();
             return true;
         } catch (IOException e) {

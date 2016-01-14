@@ -1,0 +1,7 @@
+!4 Story: the amount you pay determines the received credits.
+!|credits for payment|
+|payment  |credits?  |
+|5        |20        |
+|1        |4         |
+|5        |20        |
+|2        |8         |
