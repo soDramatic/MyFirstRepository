@@ -46,7 +46,6 @@ public class ForchanPageTest {
         forchan.getListOfImages();
         Utils.saveHashToFile(forchan.getListOfImages().get(0).getAttribute("src"));
         Utils.downloadImage(forchan.getListOfImages().get(0).getAttribute("src"));
-
     }
 
     @After
