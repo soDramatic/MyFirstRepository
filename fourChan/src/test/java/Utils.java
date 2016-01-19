@@ -69,19 +69,37 @@ public class Utils {
     }
 
 
-    public static boolean readFileAndComapreHash(String hash) throws FileNotFoundException {
-        File file = new File("E://Programowanie/Images/Hash.txt");
-        Scanner read = new Scanner(file);
-        StringTokenizer token;
-        while (read.hasNextLine()) {
-            token = new StringTokenizer(read.nextLine(), ",");
-            while (token.hasMoreElements()) {
-                System.out.println("Token=" + token.nextToken());
-                if (token.nextToken().equals(hash)) {
-                    return true;
-                }
+//    public static boolean readFileAndComapreHash(String hash) throws IOException {
+//            File file = new File("E://Programowanie/Images/Hash.txt");
+//            Scanner read = new Scanner(file);
+//            StringTokenizer token;
+//            while (read.hasNextLine()) {
+//                token = new StringTokenizer(read.nextLine(), ",");
+//                while (token.hasMoreElements()) {
+//                    System.out.println("Token=" + token.nextToken());
+//                    if (token.nextToken().equals(hash)) {
+//                        return true;
+//                    }
+//                }
+//        }
+//        return false;
+//
+//    }
+
+    public static boolean readFileAndComapreHash(String hash) throws IOException {
+
+        BufferedReader br = new BufferedReader(new FileReader("Hash.txt"));
+        String line = null;
+
+        while((line = br.readLine()) !=null){
+            String[] values = line.split(",");
+            for(String str : values){
+                System.out.println(str);
             }
         }
-        return false;
+        br.close();
+        return true;
     }
 }
+
+
