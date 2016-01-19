@@ -40,7 +40,7 @@ public class Utils {
             Files.lines(new File("E://Programowanie/Images/Hash.txt").toPath()).filter(s1 -> !s.isEmpty()).forEach(System.out::print);
             FileWriter fw = new FileWriter(file.getAbsoluteFile());
             BufferedWriter bw = new BufferedWriter(fw);
-            Utils.readFileAndComapreHash(bw.toString());
+            Utils.readFileAndComapreHash();
             bw.write(s + ",");
             bw.close();
             return true;
@@ -88,10 +88,10 @@ public class Utils {
 
     public static boolean readFileAndComapreHash(String hash) throws IOException {
 
-        BufferedReader br = new BufferedReader(new FileReader("Hash.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("E://Programowanie/Images/Hash.txt"));
         String line = null;
-
-        while((line = br.readLine()) !=null){
+        
+        while((line = br.readLine()) != null && !line.isEmpty()){
             String[] values = line.split(",");
             for(String str : values){
                 System.out.println(str);
